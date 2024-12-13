@@ -95,16 +95,14 @@ export default class SceneClickerGame extends Scene {
       this.goToNextRoom = true;
     }
 
-    if (this.isClicked == true && this.clickCount %2==0) {
+    if (this.isClicked) {
       this.clickPad.shift();
+      if (this.clickCount % 2 === 0) {
       this.storedPad = new ClickpadClicked(this.maxX / 2.3, this.maxY / 3.6);
-      this.gameItemMaker();
-      this.clickPad.push();
-    } else {
-      this.clickPad.shift();
+      } else {
       this.storedPad = new Clickpad(this.maxX / 2.39, this.maxY / 4.15);
+      }
       this.gameItemMaker();
-      this.clickPad.push();
     }
   }
 
